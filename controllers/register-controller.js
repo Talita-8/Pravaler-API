@@ -1,7 +1,6 @@
-const db  = require("../models");
+const db = require("../models");
 
 const registerController = {
-  
   register: async (req, res) => {
     try {
       const {
@@ -23,7 +22,7 @@ const registerController = {
         numero,
         bairro,
         cidade,
-        estado
+        estado,
       } = req.body;
       const user = await db.Users.create({
         status,
@@ -54,12 +53,44 @@ const registerController = {
 
   getAll: async (req, res) => {
     try {
-        const allUsers = await db.Users.findAll({
-        });
-        res.status(200).json(allUsers);
-      } catch (error) {
-        return res.status(400).json({ message: error.message });
-      }
+      const allUsers = await db.Users.findAll({});
+      res.status(200).json(allUsers);
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  },
+
+  userUpdate: async (req, res) => {
+    const userId = req.params.id;
+    try {
+      await db.Users.update(
+        {
+          status: req.body.status,
+        },
+        {
+          where: {
+            id: userId,
+          },
+        }
+      );
+      res.send("Dados atualizados!");
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  },
+
+  userDelete: async (req, res) => {
+    const userId = req.params.id;
+    try {
+      await db.Users.destroy({
+        where: {
+          id: userId,
+        },
+      });
+      res.send("Candidato excluído");
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
   },
 };
 
