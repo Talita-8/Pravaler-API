@@ -1,29 +1,49 @@
-const { db } = require("../models/index");
+const db  = require("../models");
 
 const registerController = {
   register: async (req, res) => {
     try {
-      const data = {
-        nomeAluno: req.body.nomeAluno,
-        cpfAluno: req.body.cpfAluno,
-        telefoneAluno: req.body.telefoneAluno,
-        emailAluno: req.body.emailAluno,
-        rendaAluno: req.body.rendaAluno,
-        nomeGarantidor: req.body.nomeGarantidor,
-        telefoneGarantidor: req.body.telefoneGarantidor,
-        emailGarantidor: req.body.emailGarantidor,
-        rendaGarantidor: req.body.rendaGarantidor,
-        instituicao: req.body.instituicao,
-        curso: req.body.curso,
-        cep: req.body.cep,
-        rua: req.body.rua,
-        numero: req.body.numero,
-        bairro: req.body.bairro,
-        cidade: req.body.cidade,
-        estado: req.body.estado
-      };
+      const {
+        status,
+        nomeAluno,
+        cpfAluno,
+        telefoneAluno,
+        emailAluno,
+        rendaAluno,
+        nomeGarantidor,
+        cpfGarantidor,
+        telefoneGarantidor,
+        emailGarantidor,
+        rendaGarantidor,
+        instituicao,
+        curso,
+        cep,
+        rua,
+        numero,
+        bairro,
+        cidade,
+        estado
+      } = req.body;
       const user = await db.Users.create({
-        data
+        status,
+        nomeAluno,
+        cpfAluno,
+        telefoneAluno,
+        emailAluno,
+        rendaAluno,
+        nomeGarantidor,
+        cpfGarantidor,
+        telefoneGarantidor,
+        emailGarantidor,
+        rendaGarantidor,
+        instituicao,
+        curso,
+        cep,
+        rua,
+        numero,
+        bairro,
+        cidade,
+        estado,
       });
       res.status(201).json(user);
     } catch (error) {
@@ -42,4 +62,4 @@ const registerController = {
   },
 };
 
-module.exports = registerController ;
+module.exports = registerController;
