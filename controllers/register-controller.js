@@ -1,6 +1,7 @@
 const db  = require("../models");
 
 const registerController = {
+  
   register: async (req, res) => {
     try {
       const {
