@@ -1,3 +1,4 @@
+require("dotenv").config();
 const db = require("../models");
 
 const schoolController = {
@@ -6,6 +7,18 @@ const schoolController = {
             const { name, email, password } = req.body;
             await db.Schools.create({ name, email, password });
             res.status(201).json({ message: "escola registrada com sucesso" });
+        } catch (error) {
+            return res.status(400).json({ message: error.message });
+        }
+    },
+
+    login: async (req, res) => {
+        try {
+            const data = matchedData(req)
+            const school = await db.Schools.findOne({ email: data.email });
+            if (!school) {
+                res.json({ message: "Email e/ou senha errados" });
+            }
         } catch (error) {
             return res.status(400).json({ message: error.message });
         }
