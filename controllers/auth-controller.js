@@ -31,7 +31,7 @@ module.exports = {
             let token = jwt.sign(jwtPayload, process.env.JWT);
 
             return res.status(200).json({
-                token
+                token, email
             });
         });
     },
