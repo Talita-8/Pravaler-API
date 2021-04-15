@@ -13,70 +13,70 @@ module.exports = {
       },
       nomeAluno: {
         type: Sequelize.STRING,
-        allowNull: false
+       
       },
       cpfAluno: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+       
       },
       telefoneAluno: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+        
       },
       emailAluno: {
         type: Sequelize.STRING,
-        allowNull: false
+        
       },
       rendaAluno: {
-        type: Sequelize.DOUBLE,
-        allowNull: false
+        type: Sequelize.STRING,
+       
       },
       nomeGarantidor: {
         type: Sequelize.STRING
       },
       cpfGarantidor: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       telefoneGarantidor: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       emailGarantidor: {
         type: Sequelize.STRING
       },
       rendaGarantidor: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.STRING
       },
       instituicao: {
         type: Sequelize.STRING,
-        allowNull: false
+       
       },
       curso: {
         type: Sequelize.STRING,
-        allowNull: false
+       
       },
       cep: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+        
       },
       rua: {
         type: Sequelize.STRING,
-        allowNull: false
+        
       },
       numero: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.STRING,
+        
       },
       bairro: {
         type: Sequelize.STRING,
-        allowNull: false
+        
       },
       cidade: {
         type: Sequelize.STRING,
-        allowNull: false
+       
       },
       estado: {
         type: Sequelize.STRING,
-        allowNull: false
+        
       },
       createdAt: {
         allowNull: false,
