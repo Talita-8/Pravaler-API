@@ -36,7 +36,6 @@ module.exports = {
         });
     },
 
-
     auth(req, res, next) {
         const token = req.headers.token;
 
